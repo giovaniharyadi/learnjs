@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+	#myDIV {
+		margin: auto;
+		width: 400px;
+		height: 200px;
+		padding: 3%;
+		background-color: lightblue;
+		border: 1px solid black;
+	}
+	#show-btn{
+		visibility: hidden;
+		display: none;
+		margin-left: -50px;
+	}
+</style>
+
+	
+	<h2> Function and basic </h2>
+
+	<!-- basic Function and object-->
+	<p class="example"> THis is a p element.</p>
+	<p class="example"> This is also a p element</p>
+	<p> Click the button to add a background color to the first p element (index 0)	in document </p>
+	<button onclick="myFunction()"> TRY </button>
+	<p id="demo"></p>
+	<hr>
+
+	<!-- hide and show -->
+	<p> Click the button to set the visibility property of the DIV element to "hidden" </p>
+	<button onclick="hiddenFunction()" id="hide-btn"> HIDE </button>
+	<button onclick="showFunction()" id="show-btn"> SHOW </button>
+	<div id="myDIV"> This is my DIV Element </div>
+	<hr>
+
+	<!-- validating input -->
+	<p> Please temp (C) between 1 and 100 to Fahrenhent; </p>
+	<input id="numb" type="number">
+	<button type="button" onclick="validateFunction()">Submit</button>
+	<p id="demo2"></p>
+	<hr>
+
+	<!-- add function and object -->
+	<p> Function : Additional 10+30 </p>
+	<p id="demo3"></p>
+	<p id="demo4"></p>
+	<hr>
+
+	<!-- play with string -->
+	<p> Input your name</p>
+	<input id="numb2" type="string">
+	<button type="button" onclick="myName()"> Submit</button>
+	<p id="demo5"></p>
+
+
+<script>
+	function myFunction(){
+		var x = document.querySelectorAll("p.example");
+		var i;
+		for(i=0;i<x.length;i++){
+		x[i].style.backgroundColor="red";
+		}
+		document.getElementById("demo").innerHTML=x.length;
+	}
+
+	var myDIV = document.getElementById("myDIV"),
+	    hideBTN = document.getElementById("hide-btn"),
+	    showBTN = document.getElementById("show-btn");
+
+	function hiddenFunction(){
+	    myDIV.style.visibility = "hidden";
+	    hideBTN.style.visibility = "hidden";
+	    showBTN.style.display = "inline";
+	    showBTN.style.visibility = "visible";
+	}
+
+	function showFunction(){
+	    myDIV.style.visibility = "visible";
+	    hideBTN.style.visibility = "visible";
+	    showBTN.style.visibility = "hidden";
+	}
+
+	function validateFunction(){
+		var x,text;
+		x=document.getElementById("numb").value;    
+		if (x < 1 || x > 100) {
+        text = "Input not valid";
+    	} else {
+    	x = 9/5 * x + 32
+        text = "In Fahrenheit" + "  " + x ;
+    	}
+    	document.getElementById("demo2").innerHTML = text;	
+	}
+
+	function addFuction(b) {
+		a = 10;
+		return a+b;
+	}
+	document.getElementById("demo3").innerHTML= addFuction (30);
+
+	var person = {
+		firstName : "Giovani",
+		lastName : "Haryadi",
+		age : addFuction(30),
+		fullName : function(d){
+			return this.firstName + " " + this.age;
+		}
+	}
+	document.getElementById("demo4").innerHTML= person.fullName();
+
+	function myName(){
+		var x2;
+		x2 = document.getElementById("numb2").value;
+		document.getElementById("demo5").innerHTML = "Yourname is" + " " + x2 +
+		 "(" + x2.length + "huruf)";
+	}
+
+</script>
+
+</body>
+</html>
