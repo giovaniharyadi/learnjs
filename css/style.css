@@ -1,0 +1,15 @@
+
+
+	#myDIV {
+		margin: auto;
+		width: 400px;
+		height: 200px;
+		padding: 3%;
+		background-color: lightblue;
+		border: 1px solid black;
+	}
+	#show-btn{
+		visibility: hidden;
+		display: none;
+		margin-left: -50px;
+	}
